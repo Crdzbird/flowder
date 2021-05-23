@@ -1,18 +1,70 @@
-# flowder
+# Flowder
+One thing that i always love was the simplicity that messenger had using Chatheads.
 
-A new flutter plugin project.
+And for that reason this plugin was created with all the love that us the developers have :heartbeat:
 
-## Getting Started
+### pubspec.yaml
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+```yaml
+dependencies:
+  flowder: ^0.2.0
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Examples
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+To start using flowder, is required to do the following setup.
+```dart
+fina downloaderUtils = DownloaderUtils(
+                  progressCallback: (current, total) {
+                    final progress = (current / total) * 100;
+                    print('Downloading: $progress');
+                  },
+                  file: File('$path_to_store_file/200MB.zip'),
+                  progress: ProgressImplementation(),
+                  onDone: () => print('Download done'),
+                  deleteOnCancel: true,
+                );
+                
+final core = await Flowder.download(
+                    'http://ipv4.download.thinkbroadband.com/200MB.zip',
+                    downloaderUtils);
+```
+
+To *start* a new download.
+```dart
+core.download(url, downloaderUtils);
+```
+
+
+To *resume* a download.
+```dart
+core.resume();
+```
+
+To *cancel* a download.
+```dart
+core.cancel();
+```
+
+To *pause* a download.
+```dart
+core.pause();
+```
+
+Currently done:
+- [x] Download states.
+- [x] Handle multiple downloader.  
+
+
+TODO:
+- [] Unit Tests
+
+
+
+### Contributing
+
+All contributions are welcome!
+
+If you like this project then please click on the :star2: it'll be appreciated or if you wanna add more epic stuff you can submite your pull request and it'll be gladly accepted :ok_man:
+
+or if you have an idea please let me know with a new issue.
