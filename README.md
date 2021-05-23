@@ -56,10 +56,6 @@ Currently done:
 - [x] Handle multiple downloader.  
 
 
-TODO:
-- [] Unit Tests
-
-
 
 ### Contributing
 
