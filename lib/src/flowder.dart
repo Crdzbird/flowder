@@ -54,21 +54,23 @@ class Flowder {
               response.headers.value(HttpHeaders.contentLengthHeader)!) ??
           0;
       final sink = await file.open(mode: FileMode.writeOnlyAppend);
-      subscription = response.data.stream.listen((Uint8List data) async {
-        subscription!.pause();
-        await sink.writeFrom(data);
-        final currentProgress = lastProgress + data.length;
-        await options.progress.setProgress(url, currentProgress.toInt());
-        options.progressCallback.call(currentProgress, _total);
-        lastProgress = currentProgress;
-        subscription.resume();
-      }, onDone: () async {
-        options.onDone.call();
-        await sink.close();
-        if (options.client != null) client.close();
-      }, onError: (error) async {
-        subscription!.pause();
-      });
+      subscription = response.data.stream.listen(
+        (Uint8List data) async {
+          subscription!.pause();
+          await sink.writeFrom(data);
+          final currentProgress = lastProgress + data.length;
+          await options.progress.setProgress(url, currentProgress.toInt());
+          options.progressCallback.call(currentProgress, _total);
+          lastProgress = currentProgress;
+          subscription.resume();
+        },
+        onDone: () async {
+          options.onDone.call();
+          await sink.close();
+          if (options.client != null) client.close();
+        },
+        onError: (error) async => subscription!.pause(),
+      );
       return subscription!;
     } catch (e) {
       rethrow;
