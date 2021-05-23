@@ -1,7 +1,5 @@
 # Flowder
-One thing that i always love was the simplicity that messenger had using Chatheads.
-
-And for that reason this plugin was created with all the love that us the developers have :heartbeat:
+Handle your file downloads status in a more simple and easy way :heartbeat:
 
 ### pubspec.yaml
 
