@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "program": "lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": [
+        "--flavor",
+        "dev",
+        "--no-sound-null-safety",
+        "--dart-define",
+        "env=DEV",
+        "--dart-define",
+        "networkTimeout=60"
+      ]
+    },
+  ]
+}

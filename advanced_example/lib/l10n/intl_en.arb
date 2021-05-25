@@ -1,0 +1,8 @@
+{
+    "appTitle": "File Downloader",
+    "downloaderTitle": "Downloader",
+    "downloaderPaused": "Download on hold",
+    "downloadCompleted": "Download Completed",
+    "downloadResumed": "Download Resumed",
+    "downloadStarted": "Download Started"
+}

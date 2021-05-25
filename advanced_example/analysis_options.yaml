@@ -1,0 +1,7 @@
+include: package:pedantic/analysis_options.yaml
+analyzer:
+  exclude:
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+    - "lib/generated/"
+    - "lib/generated/intl/*.dart" 
