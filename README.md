@@ -27,7 +27,7 @@ To start using flowder, is required to do the following setup.
 
 ```dart
 
-fina downloaderUtils = DownloaderUtils(
+final downloaderUtils = DownloaderUtils(
 
 progressCallback: (current, total) {
 
