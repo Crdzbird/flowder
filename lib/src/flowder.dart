@@ -14,7 +14,7 @@ export 'utils/utils.dart';
 /// Global [typedef] that returns a `int` with the current byte on download
 /// and another `int` with the total of bytes of the file.
 typedef ProgressCallback = void Function(int count, int total);
-
+typedef VoidCallback = void Function();
 /// Class used as a Static Handler
 /// you can call the folowwing functions.
 /// - Flowder.download: Returns an instance of [DownloaderCore]

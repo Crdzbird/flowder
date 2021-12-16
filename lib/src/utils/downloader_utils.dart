@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'dart:ui';
 import 'package:dio/dio.dart' hide ProgressCallback;
 import 'package:flowder/src/flowder.dart';
 import 'package:flowder/src/progress/interfaces/progress_interface.dart';
