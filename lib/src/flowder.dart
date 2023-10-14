@@ -38,7 +38,7 @@ class Flowder {
   static Future<StreamSubscription> initDownload(
       String url, DownloaderUtils options) async {
     var lastProgress = await options.progress.getProgress(url);
-    final client = options.client ?? Dio(BaseOptions(sendTimeout: 60));
+    final client = options.client ?? Dio(BaseOptions(sendTimeout: Duration(minutes: 2)));
     // ignore: cancel_subscriptions
     StreamSubscription? subscription;
     try {
@@ -51,7 +51,7 @@ class Flowder {
             headers: {HttpHeaders.rangeHeader: 'bytes=$lastProgress-'}),
       );
       final _total = int.tryParse(
-              response.headers.value(HttpHeaders.contentLengthHeader)!) ??
+              response.headers.value(HttpHeaders.contentLengthHeader) ?? '0') ??
           0;
       final sink = await file.open(mode: FileMode.writeOnlyAppend);
       subscription = response.data.stream.listen(
